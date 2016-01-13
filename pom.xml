@@ -27,7 +27,32 @@
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-client</artifactId>
 			<version>5.13.0</version>
-</dependency>
+		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>com.example.Driver</mainClass>
+					<arguments>
+						<argument>${brokerURL}</argument>
+						<argument>${queue}</argument>
+						<argument>${payload}</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
 
 </project>
